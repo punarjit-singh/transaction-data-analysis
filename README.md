@@ -1,4 +1,4 @@
-#Transaction Data Analysis
+# Transaction Data Analysis
 
 This project provides methods to analyse ```src/main/resources/transaction.csv``` data.
 
@@ -16,16 +16,16 @@ The project was designed on Mac OS Mojave using IntelliJ Idea 2019 community edi
 - src
     - main
         - java
-            - org.nasdaq
+            - org.orgname
                 - models
-                    - Contains models to map CSV data to Java Object
+                    - Contains models to map CSV data to Java Objects
                 - services
-                    - Contains services e.g. TransactionsService that contain the required methods
+                    - Contains service classes e.g. TransactionsService that define the required methods
                 - utils
                     - Contains utils to read Transactions csv and perform calculations 
         - resources
     - test  
-        - org.nasdaq.test   
+        - org.orgname.test   
                 - Contains tests e.g. TransactionTest for services e.g. TransactionsService
 ```
 
@@ -48,9 +48,9 @@ git clone https://github.com/punarjit-singh/transaction-data-analysis.git
 
 * Using mvn command line:
   * ```mvn clean install```
-  
-* Using IntelliJ TestNG plugin runner:
-  * Right click on the test class inside ```org.nasdaq.test``` and select the Run "\<TestClass>" option
+
+* OR run using IntelliJ TestNG plugin runner:
+  * Right click on the test class inside ```org.orgname.test``` and select the Run "\<TestClass>" option
   
 ### Reports
 Reports generated at ```target/surefire-reports/index.html```

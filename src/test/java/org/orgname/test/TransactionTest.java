@@ -1,6 +1,6 @@
-package org.nasdaq.test;
+package org.orgname.test;
 
-import org.nasdaq.services.TransactionsService;
+import org.orgname.services.TransactionService;
 import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
@@ -13,16 +13,16 @@ import java.util.List;
 
 public class TransactionTest {
 
-    private TransactionsService transactionsService;
+    private TransactionService transactionService;
 
     @BeforeTest
     public void setup() {
-        transactionsService = new TransactionsService("src/main/resources/transaction.csv");
+        transactionService = new TransactionService("src/main/resources/transaction.csv");
     }
 
     @Test(dataProvider = "getTestDataForSecuritiesList")
     public void shouldGetCorrectSecuritiesList(ArrayList<String> expectedSecurities, boolean getDistinct) {
-        List<String> securitiesList = transactionsService.getSecuritiesList(getDistinct);
+        List<String> securitiesList = transactionService.getSecuritiesList(getDistinct);
         Assert.assertEquals(securitiesList, expectedSecurities,
                 "Error Message: getSecuritiesList(getDistinct: " + getDistinct + ") failed");
     }
@@ -30,14 +30,14 @@ public class TransactionTest {
     @Test(dataProvider = "getTestDataForAvgTradePrice")
     public void shouldReturnCorrectAvgTradePrice(String security, double expectedTradePrice) {
         final double DELTA = 0.001;
-        double tradePrice = transactionsService.getAvgTradePrice(security);
+        double tradePrice = transactionService.getAvgTradePrice(security);
         Assert.assertEquals(tradePrice, expectedTradePrice, DELTA,
                 "Error Message: getAvgTradePrice() failed to return correct average trade price");
     }
 
     @Test(dataProvider = "getTestDataForLargestConsecutiveRise")
     public void shouldReturnLargestConsecutiveRise(String security, double expectedLargestConsecutiveRise) {
-        double largestConsecutiveRise = transactionsService.getLargestConsecutiveRise(security);
+        double largestConsecutiveRise = transactionService.getLargestConsecutiveRise(security);
         Assert.assertEquals(largestConsecutiveRise, expectedLargestConsecutiveRise,
                 "Error Message: getLargestConsecutiveRise() failed to return " +
                         "correct largest consecutive rise");
@@ -49,7 +49,7 @@ public class TransactionTest {
      */
     @Test(dataProvider = "getTestDataForAvgTradePriceAsString")
     public void shouldReturnCorrectAvgTradePriceAsString(String security, String expectedTradePrice) {
-        String tradePrice = transactionsService.getAvgTradePriceAsString(security);
+        String tradePrice = transactionService.getAvgTradePriceAsString(security);
         Assert.assertEquals(expectedTradePrice, tradePrice);
     }
 
@@ -111,7 +111,7 @@ public class TransactionTest {
 
     @AfterTest
     public void teardown() {
-        transactionsService = null;
+        transactionService = null;
     }
 
 }

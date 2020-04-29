@@ -1,18 +1,18 @@
-package org.nasdaq.services;
+package org.orgname.services;
 
-import org.nasdaq.models.Transaction;
-import org.nasdaq.utils.CalculationsHelper;
-import org.nasdaq.utils.TransactionsReader;
+import org.orgname.models.Transaction;
+import org.orgname.utils.CalculationsHelper;
+import org.orgname.utils.TransactionsReader;
 
 import java.text.DecimalFormat;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class TransactionsService {
+public class TransactionService {
 
     private List<Transaction> transactions;
 
-    public TransactionsService(String fileName) {
+    public TransactionService(String fileName) {
         this.transactions = TransactionsReader.readTransactionsFromCSV(fileName);
     }
 
@@ -22,9 +22,7 @@ public class TransactionsService {
      */
     public List<String> getSecuritiesList(boolean getDistinct) {
         List<String> securitiesList = new ArrayList<>();
-        for (Transaction transaction : transactions) {
-            securitiesList.add(transaction.getSecurity());
-        }
+        transactions.forEach(transaction -> securitiesList.add(transaction.getSecurity()));
         return getDistinct ?  securitiesList.stream().distinct().collect(Collectors.toList())
                 : securitiesList;
     }

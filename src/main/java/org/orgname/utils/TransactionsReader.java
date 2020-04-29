@@ -1,6 +1,6 @@
-package org.nasdaq.utils;
+package org.orgname.utils;
 
-import org.nasdaq.models.Transaction;
+import org.orgname.models.Transaction;
 
 import java.io.BufferedReader;
 import java.nio.charset.StandardCharsets;

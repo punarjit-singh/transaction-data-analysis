@@ -1,4 +1,4 @@
-package org.nasdaq.models;
+package org.orgname.models;
 
 public class Transaction {
 

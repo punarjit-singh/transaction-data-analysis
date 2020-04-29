@@ -1,4 +1,4 @@
-package org.nasdaq.utils;
+package org.orgname.utils;
 
 import java.io.Serializable;
 import java.text.DecimalFormat;
@@ -22,8 +22,6 @@ public class CalculationsHelper {
         } else {
             return Double.parseDouble(df.format(avgPrice));
         }
-//        avgPrice = Double.parseDouble(df.format(avgPrice));
-//        return avgPrice;
     }
 
 }
