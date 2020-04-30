@@ -44,9 +44,12 @@ public class TransactionTest {
     }
 
     /*
+
     Testing an additional method getAvgTradePriceAsString()
-    in case the prices are to parsed as Strings will all trailing zeros.
-     */
+    in case the prices are to be parsed as Strings with all trailing zeros.
+
+    Note: Value from the other method is also rounded to 2 decimals but it returns a double
+    */
     @Test(dataProvider = "getTestDataForAvgTradePriceAsString")
     public void shouldReturnCorrectAvgTradePriceAsString(String security, String expectedTradePrice) {
         String tradePrice = transactionService.getAvgTradePriceAsString(security);
