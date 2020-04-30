@@ -1,6 +1,6 @@
 # Transaction Data Analysis
 
-This project provides methods to analyse ```src/main/resources/transaction.csv``` data.
+This project provides methods to analyse [transaction.csv](/src/main/resources/transaction.csv/) data
 
 It performs data driven unit tests for the above mentioned methods.
 
